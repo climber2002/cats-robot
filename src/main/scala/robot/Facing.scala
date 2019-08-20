@@ -15,4 +15,25 @@ object Facing {
     case "WEST" => Right(West)
     case _ => Left(s"Can't parse facing: ${str}")
   }
+
+  def nextMovePosition(facing: Facing, x: Int, y: Int): (Int, Int) = facing match {
+    case North => (x, y + 1)
+    case West => (x - 1, y)
+    case South => (x, y - 1)
+    case East => (x + 1, y)
+  }
+
+  def leftFacing(facing: Facing): Facing = facing match {
+    case North => West
+    case West => South
+    case South => East
+    case East => South
+  }
+
+  def rightFacing(facing: Facing): Facing = facing match {
+    case North => East
+    case West => North
+    case South => West
+    case East => South
+  }
 }
