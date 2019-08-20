@@ -4,6 +4,8 @@ version := "0.1"
 
 scalaVersion := "2.12.8"
 
+addCompilerPlugin("com.olegpy" %% "better-monadic-for" % "0.3.0")
+
 libraryDependencies ++= Seq(
    "org.typelevel" %% "cats-core" % "2.0.0-RC1",
    "org.typelevel" %% "cats-effect" % "1.3.1",
