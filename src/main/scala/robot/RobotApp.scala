@@ -13,7 +13,7 @@ object RobotApp extends App {
       } yield(programState)
 
       case Right(command) => for {
-        (nextState, message) <- IO(ProgramState.processCommand(programState, command))
+        (nextState, message) <- IO(ProgramState.processCommand(command).run(programState).value)
         _ <- message.map(info => IOFunctions.putStrLn(info)).getOrElse(IO.pure(()))
       } yield nextState
     }
